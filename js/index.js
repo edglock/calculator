@@ -1,9 +1,20 @@
 const display = document.querySelector('#display');
-document.querySelectorAll('#numpad button')
-    .forEach(btn => btn.addEventListener('click', btnClicked));
+let operator = false;
 
-function btnClicked(ev) {
+document.querySelectorAll('#numpad .numbers')
+    .forEach(nmb => nmb.addEventListener('click', nmbClicked));
+
+document.querySelectorAll('#numpad .operators')
+    .forEach(opr => opr.addEventListener('click', oprClicked));
+
+function oprClicked(ev) {
+    if (operator === true) display.value=display.value.slice(0, display.value.length - 1);
     display.value += ev.target.innerText;
+    operator = true;
+}
+function nmbClicked(ev) {
+    display.value += ev.target.innerText;
+    operator = false;
 }
 
 //document.querySelector('#cancel')
