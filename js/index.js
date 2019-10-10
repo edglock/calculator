@@ -6,6 +6,13 @@ function btnClicked(ev) {
     display.value += ev.target.innerText;
 }
 
-document.querySelector('.equal').addEventListener('click' ,
-  () => display.value = eval(display.value));
+//document.querySelector('#cancel')
 
+//document.querySelector('#equal').addEventListener('click' ,
+//() => display.value = eval(display.value));
+document.querySelector('#equal').addEventListener('click', evaluation);
+function evaluation(){
+    //let zero = display.value.length;
+    //display.value = display.value.slice(zero-2, zero);
+    display.value = eval(display.value);
+}
