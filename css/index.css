@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 1.25em;
+}
+#equal {
+    height: 110px;
+}
+#display {
+    width: 240px;
+    text-align: right;
+    font-size: 1.25em;
+    margin-left: 5px;
+}
