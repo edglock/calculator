@@ -36,11 +36,11 @@ document.querySelector('#mc').addEventListener('click', () => additionalDisplay.
 document.querySelector('#equal').addEventListener('click', evaluation);
 
 function evaluation() {
-    devideByZeroDetection();
+    divideByZeroDetection();
     display.value = eval(display.value);
 }
 
-function devideByZeroDetection() {
+function divideByZeroDetection() {
     let slashPosition = -1;
     let slashCount = 0;
     let arrayForPosition = [];
@@ -52,5 +52,5 @@ function devideByZeroDetection() {
     for(let i = 0; i < arrayForPosition.length; i++){
 	    if(display.value[arrayForPosition[i] + 2] == ".") slashCount++;
     }
-    if (arrayForPosition.length > slashCount) display.value = "error: devide by zero";
+    if (arrayForPosition.length > slashCount) display.value = "error: divide by zero";
 }
