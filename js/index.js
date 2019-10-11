@@ -1,27 +1,37 @@
 const display = document.querySelector('#display');
-let operator = false;
+let operatorInputed = false;
 
 document.querySelectorAll('#numpad .numbers')
     .forEach(nmb => nmb.addEventListener('click', nmbClicked));
 
+function nmbClicked(ev) {
+    display.value += ev.target.innerText;
+    operatorInputed = false;
+}
 document.querySelectorAll('#numpad .operators')
     .forEach(opr => opr.addEventListener('click', oprClicked));
 
 function oprClicked(ev) {
-    if (operator === true) display.value=display.value.slice(0, display.value.length - 1);
+    if (operatorInputed === true) sliceArgument(1);
     display.value += ev.target.innerText;
-    operator = true;
+    operatorInputed = true;
 }
-function nmbClicked(ev) {
-    display.value += ev.target.innerText;
-    operator = false;
+function sliceArgument(sliceStep) {
+    display.value=display.value.slice(0, display.value.length - sliceStep);
 }
+document.querySelector('#cancel').addEventListener('click', () => display.value = null);
 
-//document.querySelector('#cancel')
+document.querySelector('#backspace').addEventListener('click', () => sliceArgument(1));
 
+document.querySelector('#percent').addEventListener('click', () => prcntClicked());
+
+function prcntClicked() {
+    display.value = display.value + '%';
+}
 
 document.querySelector('#equal').addEventListener('click', evaluation);
-function evaluation(){
+
+function evaluation() {
     devideByZeroDetection();
     display.value = eval(display.value);
 }
