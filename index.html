@@ -9,9 +9,15 @@
 </head>
 <body>
     <h1>calculator</h1>
+    <p>memory</p>
+    <input type="text" readonly placeholder="0" id="memory"><br>
+    <p>calculator</p>
     <input type="text" readonly placeholder="0" id="display">
     <section id="numpad">
     <div id="left-block">
+        <button id="mc">MC</button>
+        <button id="mplus">M+</button>
+        <button id="mminus">M-</button><br>
         <button id="cancel">C</button>
         <button class="operators">/</button>
         <button class="operators">*</button><br>
@@ -24,11 +30,12 @@
         <button class="numbers">1</button>
         <button class="numbers">2</button>
         <button class="numbers">3</button><br>
-        <button id="percent">%</button>
+        <button id="root">&#8730;</button>
         <button class="numbers">0</button>
         <button class="operators">.</button>
         </div>
         <div id="right-block">
+            <button id="mr">MR</button>
             <button id="backspace">⌫</button>
             <button class="operators">-</button>
             <button class="operators">+</button>

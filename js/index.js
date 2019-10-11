@@ -1,4 +1,6 @@
 const display = document.querySelector('#display');
+const additionalDisplay = document.querySelector('#memory');
+let memory = null;
 let operatorInputed = false;
 
 document.querySelectorAll('#numpad .numbers')
@@ -23,10 +25,19 @@ document.querySelector('#cancel').addEventListener('click', () => display.value 
 
 document.querySelector('#backspace').addEventListener('click', () => sliceArgument(1));
 
-document.querySelector('#percent').addEventListener('click', () => prcntClicked());
+document.querySelector('#root').addEventListener('click', () => display.value = Math.sqrt(display.value));
 
-function prcntClicked() {
-    display.value = display.value + '%';
+document.querySelector('#mplus').addEventListener('click', () => additionalDisplay.value = eval(additionalDisplay.value + '+' + display.value));
+
+document.querySelector('#mminus').addEventListener('click', () => additionalDisplay.value = eval(additionalDisplay.value + '-' + display.value));
+
+document.querySelector('#mr').addEventListener('click', () => display.value = additionalDisplay.value);
+
+document.querySelector('#mc').addEventListener('click', () => eraseMemory());
+
+function eraseMemory() {
+    memory = null;
+    additionalDisplay.value = memory;
 }
 
 document.querySelector('#equal').addEventListener('click', evaluation);
