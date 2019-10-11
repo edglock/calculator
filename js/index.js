@@ -19,7 +19,7 @@ function oprClicked(ev) {
     operatorInputed = true;
 }
 
-function sliceArgument = (sliceStep) => display.value=display.value.slice(0, display.value.length - sliceStep);
+sliceArgument = (sliceStep) => display.value=display.value.slice(0, display.value.length - sliceStep);
 
 document.querySelector('#cancel').addEventListener('click', () => display.value = null);
 
@@ -33,14 +33,9 @@ document.querySelector('#mminus').addEventListener('click', () => additionalDisp
 
 document.querySelector('#mr').addEventListener('click', () => display.value = additionalDisplay.value);
 
-document.querySelector('#mc').addEventListener('click', () => eraseMemory());
+document.querySelector('#mc').addEventListener('click', () => additionalDisplay.value = null);
 
-function eraseMemory() {
-    memory = null;
-    additionalDisplay.value = memory;
-}
-
-document.querySelector('#equal').addEventListener('click', evaluation);
+document.querySelector('#equal').addEventListener('click', evaluation());
 
 function evaluation() {
     devideByZeroDetection();
