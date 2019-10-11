@@ -1,6 +1,5 @@
 const display = document.querySelector('#display');
 const additionalDisplay = document.querySelector('#memory');
-let memory = null;
 let operatorInputed = false;
 
 document.querySelectorAll('#numpad .numbers')
@@ -10,6 +9,7 @@ function nmbClicked(ev) {
     display.value += ev.target.innerText;
     operatorInputed = false;
 }
+
 document.querySelectorAll('#numpad .operators')
     .forEach(opr => opr.addEventListener('click', oprClicked));
 
@@ -18,9 +18,9 @@ function oprClicked(ev) {
     display.value += ev.target.innerText;
     operatorInputed = true;
 }
-function sliceArgument(sliceStep) {
-    display.value=display.value.slice(0, display.value.length - sliceStep);
-}
+
+function sliceArgument = (sliceStep) => display.value=display.value.slice(0, display.value.length - sliceStep);
+
 document.querySelector('#cancel').addEventListener('click', () => display.value = null);
 
 document.querySelector('#backspace').addEventListener('click', () => sliceArgument(1));
@@ -52,12 +52,12 @@ function devideByZeroDetection() {
     let slashCount = 0;
     let arrayForPosition = [];
     do {
-	    slashPosition = display.value.indexOf("/0", slashPosition + 1);
+	slashPosition = display.value.indexOf("/0", slashPosition + 1);
         if (slashPosition !== -1) arrayForPosition.push(slashPosition);
     }
     while (slashPosition !== -1);
     for(let i = 0; i < arrayForPosition.length; i++){
-	    if(display.value[arrayForPosition[i] + 2] == ".") slashCount++;
+	if(display.value[arrayForPosition[i] + 2] == ".") slashCount++;
     }
     if (arrayForPosition.length > slashCount) display.value = "error: devide by zero";
 }
