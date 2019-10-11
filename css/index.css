@@ -10,9 +10,12 @@ button {
 #equal {
     height: 110px;
 }
-#display {
+#numpad {
     width: 240px;
-    text-align: right;
     font-size: 1.25em;
     margin-left: 5px;
+}
+#numpad div {
+    display: flex;
+    flex-direction: column;
 }
