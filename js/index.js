@@ -19,7 +19,7 @@ function oprClicked(ev) {
     operatorInputed = true;
 }
 
-sliceArgument = (sliceStep) => display.value=display.value.slice(0, display.value.length - sliceStep);
+function sliceArgument = (sliceStep) => display.value=display.value.slice(0, display.value.length - sliceStep);
 
 document.querySelector('#cancel').addEventListener('click', () => display.value = null);
 
